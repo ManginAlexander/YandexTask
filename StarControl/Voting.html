@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="StarControl.css">
+    <link rel="stylesheet" type="text/css" href="Voting.css">
+</head>
+<body>
+
+    <h1>
+        Как ты относишься к:
+    </h1>
+    <div id="MusicVoting">
+        <div id="questionsVoting">
+            <div>
+                Готам?
+                <div id="gothVoting" class = "starControl" data-current-star-count ="4"></div>
+            </div>
+
+            <div>
+                Панкам?
+                <div id="punkVoting" class = "starControl" data-current-star-count ="0"></div>
+            </div>
+
+            <div>
+                Реперам?
+                <div id="rapperVoting" class = "starControl" data-current-star-count ="2"></div>
+            </div>
+        </div>
+    </div>
+    <h1>
+        Итог:
+    </h1>
+    <div id="MusicVotingTotal">
+        <div>
+            Готы = <span id="gothPoint">4</span>
+        </div>
+
+        <div>
+            Панки = <span id="punkPoint">0</span>
+        </div>
+        <div>
+            Реперы = <span id="rapperPoint">2</span>
+    </div>
+
+    <script src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./StarControl.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $gothPoint = $("#gothPoint"),
+                $punkPoint = $("#punkPoint"),
+                $rapperPoint = $("#rapperPoint");
+            new StarControl($("#gothVoting"), {
+                "enableClass": "enableClass",
+                "attrNameForNumberOfStar": "starNumber",
+                "attrNameForStarCount": "current-star-count",
+                "subscribers": [function(point){ $gothPoint.text(point)}],
+                "maxCount": 10
+            });
+            new StarControl($("#punkVoting"), {
+                "enableClass": "enableClass",
+                "attrNameForNumberOfStar": "starNumber",
+                "attrNameForStarCount": "current-star-count",
+                "subscribers": [function(point){ $punkPoint.text(point)}],
+                "maxCount": 10
+            });
+            new StarControl($("#rapperVoting"), {
+                "enableClass": "enableClass",
+                "attrNameForNumberOfStar": "starNumber",
+                "attrNameForStarCount": "current-star-count",
+                "subscribers": [function(point){ $rapperPoint.text(point)}],
+                "maxCount": 10
+            });
+        });
+
+    </script>
+</body>
+</html>

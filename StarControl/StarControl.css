@@ -1,0 +1,17 @@
+
+.starControl {
+    min-width: 220px;
+    height: 22px;
+    margin: 0 0 0 10px
+}
+
+.starControl div {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+    background-image: url(redSquare.png);
+}
+.starControl div.enableClass {
+    background-image: url(blackSquare.png);
+}
